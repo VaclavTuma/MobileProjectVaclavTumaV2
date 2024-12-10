@@ -1,3 +1,25 @@
 <resources>
-    <string name="app_name">MobileProjectVaclavTuma</string>
+    <string name="app_name"> mobileprojectvaclavtuma</string>
+    // change of apps name
+    <string-array name="items">
+        <item> České Dráhy </item>
+        <item> Regiojet </item>
+        <item> LeoExpress </item>
+        <item> Arriva </item>
+    </string-array>
+
+    <string-array name="descriptions">
+        <item>  A mix of charming nostalgia and modern rail journeys across the Czech Republic. </item>
+        <item> Affordable comfort and premium services redefining European train travel. </item>
+        <item> Sleek and modern transport connecting cities with style and efficiency </item>
+        <item> Reliable regional connections bridging communities with convenience. </item>
+    </string-array>
+
+    <string-array name="prices">
+        <item> Europe </item>
+        <item> ksi </item>
+        <item> psi </item>
+        <item> 1eur </item>
+    </string-array>
+
 </resources>
