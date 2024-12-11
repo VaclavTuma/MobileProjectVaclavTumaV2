@@ -15,7 +15,7 @@ public class ItemAdapter extends BaseAdapter {
 
     //boolean chacked;
 
-    public ItemAdapter(Context c, String[] i, String[] d, Boolean ch){
+    public ItemAdapter(Context c, String[] i, String[] d){
         items = i;
         descriptions = d;
         mInflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
