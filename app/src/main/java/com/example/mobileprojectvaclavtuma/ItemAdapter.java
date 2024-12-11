@@ -40,6 +40,7 @@ public class ItemAdapter extends BaseAdapter {
         return items[position];
     }
 
+
     @Override
     public long getItemId(int position) {
 
