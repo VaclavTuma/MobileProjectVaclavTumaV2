@@ -8,8 +8,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Switch;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ConstraintLayout mainLayout = findViewById(R.id.design);
 
         Resources res = getResources(); // creation of res variable
         myListView = (ListView) findViewById(R.id.myListView);
@@ -50,6 +55,28 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent gotoVisitCzechia = new Intent(Intent.ACTION_VIEW, webaddress);
                 startActivity(gotoVisitCzechia);
+            }
+        });
+
+
+        // variables used with toggle switch
+        TextView title = findViewById(R.id.title);
+        ListView list = findViewById(R.id.myListView);
+        Switch switchMode = findViewById(R.id.switchMode);
+        TextView name = findViewById(R.id.nameTextView);
+
+        // switch
+        switchMode.setOnCheckedChangeListener((buttonView, isChecked)-> {
+            if(isChecked){ // dark mode
+                mainLayout.setBackgroundColor(getResources().getColor(R.color.darkGray));
+                title.setTextColor(getResources().getColor(R.color.white));
+                list.setBackgroundColor(getResources().getColor(R.color.darkGray));
+
+            }
+            else{ // light mode
+                mainLayout.setBackgroundColor(getResources().getColor(R.color.white));
+                title.setTextColor(getResources().getColor(R.color.black));
+                list.setBackgroundColor(getResources().getColor(R.color.white));
             }
         });
     }

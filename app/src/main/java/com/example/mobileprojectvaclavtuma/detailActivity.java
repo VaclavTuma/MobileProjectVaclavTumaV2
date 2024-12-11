@@ -31,6 +31,10 @@ public class detailActivity extends AppCompatActivity {
                 startActivity(fullscreenIntent);
             });
         }
+
+
+
+
     }
 
     private int getImg(int index) {
