@@ -2,10 +2,10 @@
     <string name="app_name"> mobileprojectvaclavtuma</string>
     // change of apps name
     <string-array name="items">
-        <item> České Dráhy </item>
-        <item> Regiojet </item>
-        <item> LeoExpress </item>
-        <item> Arriva </item>
+        <item> Karlštejn </item>
+        <item> Hluboká Nad Vltavou </item>
+        <item> Lednice </item>
+        <item> Bouzov </item>
     </string-array>
 
     <string-array name="descriptions">

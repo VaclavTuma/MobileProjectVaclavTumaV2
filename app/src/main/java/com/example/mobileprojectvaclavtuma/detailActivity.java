@@ -67,7 +67,7 @@ public class detailActivity extends AppCompatActivity {
         options.inJustDecodeBounds= false;
         Bitmap scaledImg = BitmapFactory.decodeResource(getResources(),pic,options);
 
-        img.setImageBitmap(scaledImg);// takei image and set bitmap to scaled image
+        img.setImageBitmap(scaledImg);// take image and set bitmap to scaled image
 
     }
 

@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         descriptions = res.getStringArray(R.array.descriptions); // look for array called descriptions
         //myListView.setAdapter(new ArrayAdapter<String>(this, R.layout.my_listview_detail, items));// adapter to merge these two files, String - 3 params (this list, what layout file I want to use, array to manage)
 
-        ItemAdapter itemAdapter = new ItemAdapter(this, items, prices, descriptions); // item adapter I will giv it items, prices, descrition, only referencing
+        ItemAdapter itemAdapter = new ItemAdapter(this, items, descriptions, prices); // item adapter I will giv it items, prices, descrition, only referencing
         myListView.setAdapter(itemAdapter); // where I will use it
 
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
