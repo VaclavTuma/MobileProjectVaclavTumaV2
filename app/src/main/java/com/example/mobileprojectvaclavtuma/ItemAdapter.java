@@ -13,28 +13,36 @@ public class ItemAdapter extends BaseAdapter {
     String[] items; // string array with items
     String[] descriptions; // string array with description
 
-    //boolean chacked;
+    boolean chacked;
 
-    public ItemAdapter(Context c, String[] i, String[] d){
+    public ItemAdapter(Context c, String[] i, String[] d, boolean ch){
         items = i;
         descriptions = d;
         mInflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        //chacked = ch;
+        chacked = ch;
+    }
+
+    public void setDarkMode(boolean ch){
+        chacked = ch;
+        notifyDataSetChanged();
     }
 
     // abstract methodes
     @Override
     public int getCount() { // how many items are in this list
+
         return items.length;
     }
 
     @Override
     public Object getItem(int position) {
+
         return items[position];
     }
 
     @Override
     public long getItemId(int position) {
+
         return position; // just ID
     }
 
@@ -52,4 +60,7 @@ public class ItemAdapter extends BaseAdapter {
         descriptionTextView.setText(desc);
         return v; // returning view v
     }
+
+
+
 }
