@@ -7,69 +7,64 @@ import android.os.Bundle;
 import android.view.Display;
 import android.widget.ImageView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class detailActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_detail);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.imageView), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
 
         Intent in = getIntent();
-        int index = in.getIntExtra("com.example.mobileprojectvaclavtuma.ITEM_INDEX",-1);// get extra information of the activity which index to display -1 because it expexts default value
+        int index = in.getIntExtra("com.example.mobileprojectvaclavtuma.ITEM_INDEX", -1);
 
-
-
-        if(index > -1 ){ // for safety, if index is greater than -1 I have information to passing the info
+        if (index > -1) {
             int pic = getImg(index);
-            ImageView img = (ImageView) findViewById(R.id.imageView);
-            scaleImg(img,pic); // take image and scale
+            ImageView img = findViewById(R.id.imageView);
+            scaleImg(img, pic);
+
+            // Přidání kliknutí pro zobrazení obrázku na celé obrazovce
+            img.setOnClickListener(v -> {
+                Intent fullscreenIntent = new Intent(this, fullscreenImageActivity.class);
+                fullscreenIntent.putExtra("imageResId", pic);
+                startActivity(fullscreenIntent);
+            });
         }
     }
 
-    // set the image I want
-    private int getImg(int index){ //private methode
-        switch(index){
-            case 0: return R.drawable.cd; // index 0
-            case 1: return R.drawable.regiojet; // index 1
-            case 2: return R.drawable.leoexpress; // index 2
-            default: return -1;
+    private int getImg(int index) {
+        switch (index) {
+            case 0:
+                return R.drawable.karlstejn;
+            case 1:
+                return R.drawable.hluboka;
+            case 2:
+                return R.drawable.lednice;
+            case 3:
+                return R.drawable.bouzov;
+            default:
+                return -1;
         }
     }
 
-    private void scaleImg(ImageView img, int pic){ //imageview that will be scaled
-        Display screen = getWindowManager().getDefaultDisplay(); // I need to know how large is the screen I have
-        BitmapFactory.Options options = new BitmapFactory.Options();// give acces to java library that scales images
+    private void scaleImg(ImageView img, int pic) {
+        Display screen = getWindowManager().getDefaultDisplay();
+        BitmapFactory.Options options = new BitmapFactory.Options();
 
-        options.inJustDecodeBounds = true;  // I need to know about boundaries
-        BitmapFactory.decodeResource(getResources(), pic, options); // help that app will not crash
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeResource(getResources(), pic, options);
 
-        int imgWith = options.outWidth;
-        int screenWidth =  screen.getWidth();
+        int imgWidth = options.outWidth;
+        int screenWidth = screen.getWidth();
 
-
-
-        if(imgWith > screenWidth){
-            int ratio = Math.round((float)imgWith / (float) screenWidth);
+        if (imgWidth > screenWidth) {
+            int ratio = Math.round((float) imgWidth / (float) screenWidth);
             options.inSampleSize = ratio;
         }
-        options.inJustDecodeBounds= false;
-        Bitmap scaledImg = BitmapFactory.decodeResource(getResources(),pic,options);
+        options.inJustDecodeBounds = false;
+        Bitmap scaledImg = BitmapFactory.decodeResource(getResources(), pic, options);
 
-        img.setImageBitmap(scaledImg);// take image and set bitmap to scaled image
-
+        img.setImageBitmap(scaledImg);
     }
-
-
 }

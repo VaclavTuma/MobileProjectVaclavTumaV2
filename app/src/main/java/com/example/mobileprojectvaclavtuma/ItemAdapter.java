@@ -11,12 +11,10 @@ public class ItemAdapter extends BaseAdapter {
 
     LayoutInflater mInflater; //m for member of the class
     String[] items; // string array with items
-    String[] prices; // string array with prices
     String[] descriptions; // string array with description
 
-    public ItemAdapter(Context c, String[] i, String[] p, String[] d){
+    public ItemAdapter(Context c, String[] i, String[] d){
         items = i;
-        prices = p;
         descriptions = d;
         mInflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
@@ -42,18 +40,13 @@ public class ItemAdapter extends BaseAdapter {
         View v = mInflater.inflate(R.layout.my_listview_detail,null); // variable v
         TextView nameTextView = (TextView) v.findViewById(R.id.nameTextView);
         TextView descriptionTextView = (TextView) v.findViewById(R.id.descriptionTextView);
-        TextView priceTextView = (TextView) v.findViewById(R.id.descriptionTextView);
 
         String name = items[position]; // name of it is items position is current parameter 0-2
         String desc = descriptions[position];
-        String cost = prices[position];
 
         // put info to textView
         nameTextView.setText(name);
         descriptionTextView.setText(desc);
-        priceTextView.setText(cost);
         return v; // returning view v
     }
-
-
 }
