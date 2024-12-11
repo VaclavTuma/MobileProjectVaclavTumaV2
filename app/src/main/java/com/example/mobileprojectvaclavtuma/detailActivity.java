@@ -12,6 +12,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class detailActivity extends AppCompatActivity {
 
+    boolean chacked = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +21,7 @@ public class detailActivity extends AppCompatActivity {
 
         Intent in = getIntent();
         int index = in.getIntExtra("com.example.mobileprojectvaclavtuma.ITEM_INDEX", -1);
+        chacked = in.getBooleanExtra("com.example.mobileprojectvaclavtuma.DARK_MODE",false);
 
         if (index > -1) {
             int pic = getImg(index);
@@ -34,18 +37,15 @@ public class detailActivity extends AppCompatActivity {
         }
 
         ConstraintLayout layoutID = findViewById(R.id.layoutID);
-        //Switch switchMode = findViewById(R.id.switchMode);
+        if(chacked){
+            layoutID.setBackgroundColor(getResources().getColor(R.color.darkGray));
+        }
+        else{
+            layoutID.setBackgroundColor(getResources().getColor(R.color.white));
+        }
 
-        //switchMode.setOnCheckedChangeListener((buttonView, isChecked)-> {
-            /*if(isChecked){ // dark mode
-                layoutID.setBackgroundColor(getResources().getColor(R.color.darkGray));
 
 
-            }
-            else{ // light mode
-                layoutID.setBackgroundColor(getResources().getColor(R.color.white));
-            }*/
-       // });
 
 
 

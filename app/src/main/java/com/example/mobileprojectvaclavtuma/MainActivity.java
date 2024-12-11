@@ -20,14 +20,19 @@ public class MainActivity extends AppCompatActivity {
     String[] items; // string array with items
     String[] descriptions; // string array with description
 
-    boolean chacked = true;
+    boolean chacked = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Used with toggle switch
         ConstraintLayout mainLayout = findViewById(R.id.design);
+        TextView title = findViewById(R.id.title);
+        ListView list = findViewById(R.id.myListView);
+        Switch switchMode = findViewById(R.id.switchMode);
+
 
         Resources res = getResources(); // creation of res variable
         myListView = (ListView) findViewById(R.id.myListView);
@@ -35,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         descriptions = res.getStringArray(R.array.descriptions); // look for array called descriptions
         //myListView.setAdapter(new ArrayAdapter<String>(this, R.layout.my_listview_detail, items));// adapter to merge these two files, String - 3 params (this list, what layout file I want to use, array to manage)
 
-        ItemAdapter itemAdapter = new ItemAdapter(this, items, descriptions); // item adapter I will giv it items, prices, descrition, only referencing
+        ItemAdapter itemAdapter = new ItemAdapter(this, items, descriptions, chacked); // item adapter I will giv it items, prices, descrition, only referencing
         myListView.setAdapter(itemAdapter); // where I will use it
 
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -43,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent showDetailActivity = new Intent(getApplicationContext(), detailActivity.class);
                 showDetailActivity.putExtra("com.example.mobileprojectvaclavtuma.ITEM_INDEX", position);// send activity which ID was clicked
+                showDetailActivity.putExtra("com.example.mobileprojectvaclavtuma.DARK_MODE", chacked);
                 startActivity(showDetailActivity);
             }
         });
@@ -61,15 +67,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        // variables used with toggle switch
-        TextView title = findViewById(R.id.title);
-        ListView list = findViewById(R.id.myListView);
-        Switch switchMode = findViewById(R.id.switchMode);
-
-
-
         // switch
         switchMode.setOnCheckedChangeListener((buttonView, isChecked)-> {
+            chacked = isChecked;
             if(isChecked){ // dark mode
                 mainLayout.setBackgroundColor(getResources().getColor(R.color.darkGray));
                 title.setTextColor(getResources().getColor(R.color.white));
@@ -82,22 +82,6 @@ public class MainActivity extends AppCompatActivity {
                 list.setBackgroundColor(getResources().getColor(R.color.white));
             }
         });
-        /*
-        TextView name = findViewById(R.id.nameTextView);
-        TextView description = findViewById(R.id.descriptionTextView);
-
-        switchMode.setOnCheckedChangeListener((buttonView, isChecked)->{
-            if(isChecked){ // dark mode
-                name.setTextColor(getResources().getColor(R.color.white));
-                description.setTextColor(getResources().getColor(R.color.white));
-            }
-            else{ // light mode
-                name.setTextColor(getResources().getColor(R.color.black));
-                description.setTextColor(getResources().getColor(R.color.black));
-            }
-        });*/
-
-
 
     }
 }

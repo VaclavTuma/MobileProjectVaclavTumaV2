@@ -13,10 +13,13 @@ public class ItemAdapter extends BaseAdapter {
     String[] items; // string array with items
     String[] descriptions; // string array with description
 
-    public ItemAdapter(Context c, String[] i, String[] d){
+    //boolean chacked;
+
+    public ItemAdapter(Context c, String[] i, String[] d, Boolean ch){
         items = i;
         descriptions = d;
         mInflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        //chacked = ch;
     }
 
     // abstract methodes
