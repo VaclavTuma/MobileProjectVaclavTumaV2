@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     String[] items; // string array with items
     String[] descriptions; // string array with description
 
+    boolean chacked = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +65,8 @@ public class MainActivity extends AppCompatActivity {
         TextView title = findViewById(R.id.title);
         ListView list = findViewById(R.id.myListView);
         Switch switchMode = findViewById(R.id.switchMode);
-        TextView name = findViewById(R.id.nameTextView);
+
+
 
         // switch
         switchMode.setOnCheckedChangeListener((buttonView, isChecked)-> {
@@ -79,6 +82,23 @@ public class MainActivity extends AppCompatActivity {
                 list.setBackgroundColor(getResources().getColor(R.color.white));
             }
         });
+        /*
+        TextView name = findViewById(R.id.nameTextView);
+        TextView description = findViewById(R.id.descriptionTextView);
+
+        switchMode.setOnCheckedChangeListener((buttonView, isChecked)->{
+            if(isChecked){ // dark mode
+                name.setTextColor(getResources().getColor(R.color.white));
+                description.setTextColor(getResources().getColor(R.color.white));
+            }
+            else{ // light mode
+                name.setTextColor(getResources().getColor(R.color.black));
+                description.setTextColor(getResources().getColor(R.color.black));
+            }
+        });*/
+
+
+
     }
 }
 //android:id="@+id/imageView"

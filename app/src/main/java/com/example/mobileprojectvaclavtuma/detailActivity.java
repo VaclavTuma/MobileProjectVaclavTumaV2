@@ -8,6 +8,7 @@ import android.view.Display;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class detailActivity extends AppCompatActivity {
 
@@ -32,7 +33,37 @@ public class detailActivity extends AppCompatActivity {
             });
         }
 
+        ConstraintLayout layoutID = findViewById(R.id.layoutID);
+        //Switch switchMode = findViewById(R.id.switchMode);
 
+        //switchMode.setOnCheckedChangeListener((buttonView, isChecked)-> {
+            /*if(isChecked){ // dark mode
+                layoutID.setBackgroundColor(getResources().getColor(R.color.darkGray));
+
+
+            }
+            else{ // light mode
+                layoutID.setBackgroundColor(getResources().getColor(R.color.white));
+            }*/
+       // });
+
+
+
+/*
+        Switch switchMode = findViewById(R.id.switchMode);
+        TextView name = findViewById(R.id.nameTextView);
+        TextView description = findViewById(R.id.descriptionTextView);
+
+        switchMode.setOnCheckedChangeListener((buttonView, isChecked)->{
+            if(isChecked){ // dark mode
+                name.setTextColor(getResources().getColor(R.color.white));
+                description.setTextColor(getResources().getColor(R.color.white));
+            }
+            else{ // light mode
+                name.setTextColor(getResources().getColor(R.color.black));
+                description.setTextColor(getResources().getColor(R.color.black));
+            }
+        });*/
 
 
     }
