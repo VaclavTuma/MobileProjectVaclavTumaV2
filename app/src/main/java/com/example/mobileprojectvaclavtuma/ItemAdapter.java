@@ -56,6 +56,17 @@ public class ItemAdapter extends BaseAdapter {
         String name = items[position]; // name of it is items position is current parameter 0-2
         String desc = descriptions[position];
 
+        if(chacked){
+            nameTextView.setTextColor(v.getResources().getColor(R.color.white));
+            descriptionTextView.setTextColor(v.getResources().getColor(R.color.white));
+        }
+        else {
+            nameTextView.setTextColor(v.getResources().getColor(R.color.black));
+            descriptionTextView.setTextColor(v.getResources().getColor(R.color.black));
+        }
+
+
+
         // put info to textView
         nameTextView.setText(name);
         descriptionTextView.setText(desc);
