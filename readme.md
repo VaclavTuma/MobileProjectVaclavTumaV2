@@ -11,4 +11,4 @@ in Android Studio it is optimalized for Pixel 9 Pro, but the code should work fr
 
 This app provides information about castles. By clicking on a castle, an image of it is displayed. The location of each castle is marked on a map, with the castle's name shown on each marker. There is also a button that opens the official Czech tourism webpage. You can switch between Dark and Light modes using a toggle, and the selected mode is reflected in the picture section as well.
 
-<img src="./res/drawable/MOBILE.png" width="100%" style="display:block; margin: 40px auto"/>
+<img src=".app/src/main/res/drawable/MOBILE.png" width="100%" style="display:block; margin: 40px auto"/>
