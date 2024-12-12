@@ -84,6 +84,9 @@ public class MainActivity extends AppCompatActivity {
             itemAdapter.setDarkMode(isChecked);
         });
 
+        // MAP
+        //private GoogleMap
+
     }
 }
 //android:id="@+id/imageView"
