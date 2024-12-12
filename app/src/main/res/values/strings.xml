@@ -14,4 +14,7 @@
         <item> An elegant 19th-century neo-Gothic châteaux surrounded by a vast park</item>
         <item> Majestic 14th-century Gothic castle, rebuilt to a Romantic style. </item>
     </string-array>
+
+    <string name="ApiKey">AIzaSyC2A_HRxmcmoxuI0nB9ElNQJ05VifV7xj8</string>
+
 </resources>
