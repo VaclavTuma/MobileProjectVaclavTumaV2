@@ -22,16 +22,17 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnMapReadyCallback{
 
-    ListView myListView; //class
+    ListView myListView; // ListView instance
     String[] items; // string array with items
     String[] descriptions; // string array with description
 
     boolean chacked = false;
     private GoogleMap Map;
+    //private MapView mapView;
 
-
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -92,18 +93,21 @@ public class MainActivity extends AppCompatActivity {
             itemAdapter.setDarkMode(isChecked);
         });
 
-        // MAP
+        // initialize MAP
         SupportMapFragment fragmentMap = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-        fragmentMap.getMapAsync((OnMapReadyCallback) this);
+        if(fragmentMap != null){
+            fragmentMap.getMapAsync(this);
+        }
+
 
 
     }
+    @Override
     public void onMapReady(@NonNull GoogleMap googleMap){
         Map = googleMap; // inicialized Map
         LatLng Karlstejn = new LatLng(49.93,14.88);// latitude longtitude for Karlstejn
         LatLng cameraView = new LatLng(49.88,15.217);// latitude longtitude for Karlstejn
         Map.addMarker(new MarkerOptions().position(Karlstejn).title("Karlstejn"));
-        Map.moveCamera(CameraUpdateFactory.newLatLng(cameraView));
+        Map.moveCamera(CameraUpdateFactory.newLatLngZoom(cameraView, 7f)); // change camera to the center of republic and change zoom lvl
     }
 }
-//android:id="@+id/imageView"
