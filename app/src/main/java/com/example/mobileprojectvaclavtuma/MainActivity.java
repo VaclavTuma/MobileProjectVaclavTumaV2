@@ -11,6 +11,7 @@ import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -27,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     private GoogleMap Map;
 
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -73,15 +73,14 @@ public class MainActivity extends AppCompatActivity {
 
 
         // switch
-        switchMode.setOnCheckedChangeListener((buttonView, isChecked)-> {
+        switchMode.setOnCheckedChangeListener((buttonView, isChecked) -> {
             chacked = isChecked;
-            if(isChecked){ // dark mode
+            if (isChecked) { // dark mode
                 mainLayout.setBackgroundColor(getResources().getColor(R.color.darkGray));
                 title.setTextColor(getResources().getColor(R.color.white));
                 list.setBackgroundColor(getResources().getColor(R.color.darkGray));
 
-            }
-            else{ // light mode
+            } else { // light mode
                 mainLayout.setBackgroundColor(getResources().getColor(R.color.white));
                 title.setTextColor(getResources().getColor(R.color.black));
                 list.setBackgroundColor(getResources().getColor(R.color.white));
@@ -91,6 +90,12 @@ public class MainActivity extends AppCompatActivity {
 
         // MAP
         SupportMapFragment fragmentMap = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        fragmentMap.getMapAsync(this);
+
+    }
+    @Override
+    public void onMapReady(@NonNull GoogleMap googleMap){
+        Map = googleMap; // inicialized Map
     }
 }
 //android:id="@+id/imageView"
