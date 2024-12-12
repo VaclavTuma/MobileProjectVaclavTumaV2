@@ -1,4 +1,4 @@
-# Mobile App with information about castles in the Czech republic
+# Mobile App with information about the castles in the Czech republic
 
 I have chosen this project, because I wanted to show, how some beautiful castles back home looks like.
 
