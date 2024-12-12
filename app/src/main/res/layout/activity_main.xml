@@ -21,7 +21,6 @@
         app:layout_constraintTop_toTopOf="parent"
         android:textColor="@color/black"/>
 
-
     <ListView
         android:id="@+id/myListView"
         android:layout_width="0dp"
