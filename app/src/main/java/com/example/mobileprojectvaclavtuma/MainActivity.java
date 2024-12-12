@@ -105,9 +105,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap){
         Map = googleMap; // inicialized Map
-        LatLng Karlstejn = new LatLng(49.93,14.88);// latitude longtitude for Karlstejn
+        LatLng Karlstejn = new LatLng(49.939575,14.188191);// latitude longtitude for Karlstejn
+
         LatLng cameraView = new LatLng(49.88,15.217);// latitude longtitude for Karlstejn
         Map.addMarker(new MarkerOptions().position(Karlstejn).title("Karlstejn"));
-        Map.moveCamera(CameraUpdateFactory.newLatLngZoom(cameraView, 7f)); // change camera to the center of republic and change zoom lvl
+        Map.moveCamera(CameraUpdateFactory.newLatLngZoom(cameraView, 6f)); // change camera to the center of republic and change zoom lvl
     }
 }
