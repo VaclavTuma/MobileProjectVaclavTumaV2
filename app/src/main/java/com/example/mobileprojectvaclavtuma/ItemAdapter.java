@@ -65,14 +65,9 @@ public class ItemAdapter extends BaseAdapter {
             descriptionTextView.setTextColor(v.getResources().getColor(R.color.black));
         }
 
-
-
         // put info to textView
         nameTextView.setText(name);
         descriptionTextView.setText(desc);
         return v; // returning view v
     }
-
-
-
 }

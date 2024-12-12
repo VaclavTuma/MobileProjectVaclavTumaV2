@@ -27,13 +27,6 @@ public class detailActivity extends AppCompatActivity {
             int pic = getImg(index);
             ImageView img = findViewById(R.id.imageView);
             scaleImg(img, pic);
-
-            // Přidání kliknutí pro zobrazení obrázku na celé obrazovce
-            img.setOnClickListener(v -> {
-                Intent fullscreenIntent = new Intent(this, fullscreenImageActivity.class);
-                fullscreenIntent.putExtra("imageResId", pic);
-                startActivity(fullscreenIntent);
-            });
         }
 
         ConstraintLayout layoutID = findViewById(R.id.layoutID);
@@ -43,29 +36,6 @@ public class detailActivity extends AppCompatActivity {
         else{
             layoutID.setBackgroundColor(getResources().getColor(R.color.white));
         }
-
-
-
-
-
-
-/*
-        Switch switchMode = findViewById(R.id.switchMode);
-        TextView name = findViewById(R.id.nameTextView);
-        TextView description = findViewById(R.id.descriptionTextView);
-
-        switchMode.setOnCheckedChangeListener((buttonView, isChecked)->{
-            if(isChecked){ // dark mode
-                name.setTextColor(getResources().getColor(R.color.white));
-                description.setTextColor(getResources().getColor(R.color.white));
-            }
-            else{ // light mode
-                name.setTextColor(getResources().getColor(R.color.black));
-                description.setTextColor(getResources().getColor(R.color.black));
-            }
-        });*/
-
-
     }
 
     private int getImg(int index) {

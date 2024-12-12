@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     boolean chacked = false;
     private GoogleMap Map;
-    //private MapView mapView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +47,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         myListView = (ListView) findViewById(R.id.myListView);
         items = res.getStringArray(R.array.items); // look for array called item
         descriptions = res.getStringArray(R.array.descriptions); // look for array called descriptions
-        //myListView.setAdapter(new ArrayAdapter<String>(this, R.layout.my_listview_detail, items));// adapter to merge these two files, String - 3 params (this list, what layout file I want to use, array to manage)
 
         ItemAdapter itemAdapter = new ItemAdapter(this, items, descriptions, chacked); // item adapter I will giv it items, prices, descrition, only referencing
         myListView.setAdapter(itemAdapter); // where I will use it
@@ -80,12 +78,12 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         // switch
         switchMode.setOnCheckedChangeListener((buttonView, isChecked) -> {
             chacked = isChecked;
-            if (isChecked) { // dark mode
+            if (isChecked){ // dark mode
                 mainLayout.setBackgroundColor(getResources().getColor(R.color.darkGray));
                 title.setTextColor(getResources().getColor(R.color.white));
                 list.setBackgroundColor(getResources().getColor(R.color.darkGray));
-
-            } else { // light mode
+            }
+            else{ // light mode
                 mainLayout.setBackgroundColor(getResources().getColor(R.color.white));
                 title.setTextColor(getResources().getColor(R.color.black));
                 list.setBackgroundColor(getResources().getColor(R.color.white));
@@ -98,9 +96,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         if(fragmentMap != null){
             fragmentMap.getMapAsync(this);
         }
-
-
-
     }
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap){
