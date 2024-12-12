@@ -92,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
         SupportMapFragment fragmentMap = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         fragmentMap.getMapAsync(this);
 
+
     }
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap){
