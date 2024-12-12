@@ -14,6 +14,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.SupportMapFragment;
+
 public class MainActivity extends AppCompatActivity {
 
     ListView myListView; //class
@@ -21,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     String[] descriptions; // string array with description
 
     boolean chacked = false;
+    private GoogleMap Map;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,8 +90,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // MAP
-        //private GoogleMap
-
+        SupportMapFragment fragmentMap = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
     }
 }
 //android:id="@+id/imageView"
