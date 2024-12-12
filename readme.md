@@ -4,7 +4,11 @@ I have chosen this project, because I wanted to show, how some beautiful castles
 
 Basic of this project is from https://www.youtube.com/watch?v=6ow3L39Wxmg and https://www.youtube.com/watch?v=rdGpT1pIJlw, other necessary tools during development were https://developers.google.com/maps/documentation/android-sdk/start#maps_activity_file and https://developers.google.com/android-publisher/getting_started
 
-It is built with: Java - MainActivity, detailActivity and ItemAdapter | xml - activity_main, activity_detail and mu_listview_detail | colors - values -> colors.xml | strings - values -> strings.xml
+It is built with: 
+Java - MainActivity, detailActivity and ItemAdapter
+Xml - activity_main, activity_detail and mu_listview_detail 
+Colors - values -> colors.xml 
+Strings - values -> strings.xml
 
 How to run Application?
 in Android Studio it is optimalized for Pixel 9 Pro, but the code should work from Android version 7. 
