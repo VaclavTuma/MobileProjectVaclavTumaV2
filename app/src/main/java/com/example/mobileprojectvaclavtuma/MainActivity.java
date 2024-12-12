@@ -111,8 +111,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         LatLng Bouzov = new LatLng(49.704544,16.890134);// latitude longtitude for Bouzov
 
         LatLng cameraView = new LatLng(49.88,15.217);// latitude longtitude for cameraview
-        Map.addMarker(new MarkerOptions().position(Karlstejn).title("Karlstejn"));
-        Map.addMarker(new MarkerOptions().position(Hluboka).title("Hluboka"));
+        Map.addMarker(new MarkerOptions().position(Karlstejn).title("Karlštejn"));
+        Map.addMarker(new MarkerOptions().position(Hluboka).title("Hluboká Nad Vltavou"));
         Map.addMarker(new MarkerOptions().position(Lednice).title("Lednice"));
         Map.addMarker(new MarkerOptions().position(Bouzov).title("Bouzov"));
 
